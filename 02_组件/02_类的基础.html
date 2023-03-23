@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    class Person {
+        // 构造器方法
+        constructor(name, age){
+            this.name = name,
+            this.age = age
+        }
+        speak() {
+            // this指向类的实例对象
+            console.log(this)
+            return `我的名字${this.name},我的年龄${this.age}`;
+        }
+    }
+    const people1 = new Person('张三',20);
+    console.log(people1.speak());
+    // 创建Student类继承Person
+    class Student extends Person {
+        constructor(name, age, grade){
+            super(name, age);
+            this.grade =  grade;
+        }
+        // 如果没有speak的时候会继承父类的方法，如果有的情况则是覆盖
+        speak(){
+            console.log(this);
+            return `我的名字${this.name},我的年龄${this.age},我的年级${this.grade}`;
+        }
+    }
+    const student1 = new Student('王五',12,'初二')
+    console.log(student1.speak());
+</script>

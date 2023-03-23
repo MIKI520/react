@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+</html>
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<style>
+    .feihu{
+        color: aqua;
+    }
+</style>
+<script type="text/babel">
+  const myId = 'feihu';
+  const myText = 'hello,feihu';
+
+  const VDOM = (
+    <div className="feihu">
+        // jsx内联样式{}
+        // jsx定义虚拟DOM的时候需要加引号
+        // jsx使用js语句的时候需要加引号
+      <h1 style={{color:'orange'}} id={myId}>{myText}</h1>
+      <h2>hello,world</h2>
+    </div>  
+  )
+  ReactDOM.render(VDOM,document.getElementById('test'));
+</script>
