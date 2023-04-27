@@ -8,8 +8,6 @@
 </head>
 <body>
     <div id="test1"></div>
-    <div id="test2"></div>
-    <div id="test3"></div>
 </body>
 </html>
 
@@ -20,18 +18,17 @@
 
 <script type="text/babel">
     class Myconponents extends React.Component{
+        showData = () => {
+            const {input1} = this;
+            console.log(input1.value);
+        }
         render(){
-            const {name,age,sex} = this.props; 
             return(
-                <ul>
-                    <li>姓名：{this.props.name}</li>
-                    <li>性别：{this.props.sex}</li>
-                    <li>年龄：{this.props.age}</li>
-                </ul>
-            )
+                <div>
+                    <input onBlur={this.showData} ref={c => this.input1 = c} type="text" />
+                </div>
+            );
         }
     }
-    ReactDOM.render(<Myconponents name="小黄" age="11" sex="男" />,document.getElementById("test1"));
-    ReactDOM.render(<Myconponents name="小红" age="11" sex="男" />,document.getElementById("test2"));
-    ReactDOM.render(<Myconponents name="小粉" age="11" sex="男" />,document.getElementById("test3"));
+    ReactDOM.render(<Myconponents />,document.getElementById('test1'))
 </script>

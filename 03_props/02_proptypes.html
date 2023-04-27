@@ -16,10 +16,18 @@
 <script type="text/javascript" src="../js/react.development.js"></script>
 <script type="text/javascript" src="../js/react-dom.development.js"></script>
 <script type="text/javascript" src="../js/babel.min.js"></script>
-<script type="text/javascript"  src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
 
 <script type="text/babel">
     class Myconponents extends React.Component{
+    static propTypes = {
+        name: PropTypes.string.isRequired,
+        sex: PropTypes.string,
+    }
+    static defaultProps = {
+        sex: '不男不女',
+        age: 18,
+    }
         render(){
             const {name,age,sex} = this.props; 
             return(
@@ -31,7 +39,9 @@
             )
         }
     }
-    ReactDOM.render(<Myconponents name="小黄" age="11" sex="男" />,document.getElementById("test1"));
+
+    const p = {name:"小兰",age:null, sex:null}
+    ReactDOM.render(<Myconponents {...p} />,document.getElementById("test1"));
     ReactDOM.render(<Myconponents name="小红" age="11" sex="男" />,document.getElementById("test2"));
     ReactDOM.render(<Myconponents name="小粉" age="11" sex="男" />,document.getElementById("test3"));
 </script>
